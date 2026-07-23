@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Banco de Recursos para Presentaciones: descubre y aprende a usar Canva, Genially, Prezi y más herramientas para crear presentaciones increíbles.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+    <title>Banco de Recursos para Presentaciones</title>
+    <link rel="stylesheet" href="css/style.css?v=3">
+</head>
+<body>
+
+    <header class="site-header">
+        <a href="index.html" class="logo">📚 Banco<span>Recursos</span></a>
+        <nav class="main-nav">
+            <a href="index.html">Inicio</a>
+            <a href="#carousel">Herramientas</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Banco de Recursos para Presentaciones</h1>
+            <p>Explora 7 herramientas para crear presentaciones increíbles</p>
+        </section>
+
+        <section id="carousel" class="carousel-section">
+            <button id="btnPrev" class="carousel-arrow left" aria-label="Anterior">&#10094;</button>
+            <div class="carousel-track">
+                <div class="carousel-card" data-index="0" data-slug="canva">
+                    <div class="logo-caja">
+                        <img src="img/logos/canva.png"
+                             alt="Logo de Canva"
+                             onerror="this.closest('.logo-caja').outerHTML = '<div class=&quot;logo-circulo&quot; style=&quot;background:#00C4CC&quot;>C</div>';">
+                    </div>
+                    <h3>Canva</h3>
+                </div>
+                <div class="carousel-card" data-index="1" data-slug="geogebra">
+                    <div class="logo-caja">
+                        <img src="img/logos/geogebra.png"
+                             alt="Logo de GeoGebra"
+                             onerror="this.closest('.logo-caja').outerHTML = '<div class=&quot;logo-circulo&quot; style=&quot;background:#2A5ADA&quot;>G</div>';">
+                    </div>
+                    <h3>GeoGebra</h3>
+                </div>
+                <div class="carousel-card" data-index="2" data-slug="slidesgo">
+                    <div class="logo-caja">
+                        <img src="img/logos/slidesgo.png"
+                             alt="Logo de Slidesgo"
+                             onerror="this.closest('.logo-caja').outerHTML = '<div class=&quot;logo-circulo&quot; style=&quot;background:#7B61FF&quot;>S</div>';">
+                    </div>
+                    <h3>Slidesgo</h3>
+                </div>
+                <div class="carousel-card" data-index="3" data-slug="slidescarnival">
+                    <div class="logo-caja">
+                        <img src="img/logos/slidescarnival.png"
+                             alt="Logo de SlidesCarnival"
+                             onerror="this.closest('.logo-caja').outerHTML = '<div class=&quot;logo-circulo&quot; style=&quot;background:#FF6B35&quot;>S</div>';">
+                    </div>
+                    <h3>SlidesCarnival</h3>
+                </div>
+                <div class="carousel-card" data-index="4" data-slug="prezi">
+                    <div class="logo-caja">
+                        <img src="img/logos/prezi.png"
+                             alt="Logo de Prezi"
+                             onerror="this.closest('.logo-caja').outerHTML = '<div class=&quot;logo-circulo&quot; style=&quot;background:#2D8CFF&quot;>P</div>';">
+                    </div>
+                    <h3>Prezi</h3>
+                </div>
+                <div class="carousel-card" data-index="5" data-slug="visme">
+                    <div class="logo-caja">
+                        <img src="img/logos/visme.png"
+                             alt="Logo de Visme"
+                             onerror="this.closest('.logo-caja').outerHTML = '<div class=&quot;logo-circulo&quot; style=&quot;background:#FF4351&quot;>V</div>';">
+                    </div>
+                    <h3>Visme</h3>
+                </div>
+                <div class="carousel-card" data-index="6" data-slug="genially">
+                    <div class="logo-caja">
+                        <img src="img/logos/genially.png"
+                             alt="Logo de Genially"
+                             onerror="this.closest('.logo-caja').outerHTML = '<div class=&quot;logo-circulo&quot; style=&quot;background:#6D30D6&quot;>G</div>';">
+                    </div>
+                    <h3>Genially</h3>
+                </div>
+            </div>
+            <button id="btnNext" class="carousel-arrow right" aria-label="Siguiente">&#10095;</button>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Banco de Recursos para Presentaciones &mdash; Proyecto educativo</p>
+    </footer>
+
+    <div id="modalOverlay" class="modal-overlay">
+        <div class="modal-caja">
+            <button id="modalCerrar" class="modal-cerrar" aria-label="Cerrar">&times;</button>
+            <div class="modal-panel" data-slug="canva">
+                <div class="detalle-top">
+                    <div class="logo-caja logo-caja--grande">
+                        <img src="img/logos/canva.png"
+                             alt="Logo de Canva"
+                             onerror="this.closest('.logo-caja').outerHTML = '<div class=&quot;logo-circulo&quot; style=&quot;background:#00C4CC&quot;>C</div>';">
+                    </div>
+                    <h2>Canva</h2>
+                </div>
+
+                <p class="descripcion">Editor de diseño gráfico en línea, fácil de usar, con plantillas para presentaciones, redes sociales y mucho más.</p>
+
+                <div class="video-wrapper">
+                    <video controls preload="metadata" playsinline
+                           onerror="this.parentElement.innerHTML = '<div class=\'video-pendiente\'>🎬 Video próximamente<br><small>(coloca &quot;canva.mp4&quot; en la carpeta /video/)</small></div>';">
+                        <source src="video/canva.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de este video.
+                    </video>
+                    <button class="video-maximizar" aria-label="Maximizar video">⛶</button>
+                </div>
+
+                <div class="detalle-columnas">
+                    <div class="columna">
+                        <h3>✅ Características</h3>
+                        <ul>
+                                <li>Miles de plantillas prediseñadas</li>
+                                <li>Edición colaborativa en tiempo real</li>
+                                <li>Banco de imágenes e íconos integrado</li>
+                                <li>Versión gratuita y de pago (Canva Pro)</li>
+                        </ul>
+                    </div>
+                    <div class="columna">
+                        <h3>👍 Ventajas</h3>
+                        <ul>
+                                <li>Muy fácil de aprender</li>
+                                <li>Interfaz intuitiva de arrastrar y soltar</li>
+                                <li>Funciona en navegador y en app móvil</li>
+                        </ul>
+                    </div>
+                    <div class="columna">
+                        <h3>👎 Desventajas</h3>
+                        <ul>
+                                <li>Las mejores plantillas requieren la versión Pro</li>
+                                <li>Puede volverse lento con diseños muy pesados</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <a class="boton-oficial" href="https://www.canva.com" target="_blank" rel="noopener">Visitar sitio oficial ↗</a>
+            </div>
+            <div class="modal-panel" data-slug="geogebra">
+                <div class="detalle-top">
+                    <div class="logo-caja logo-caja--grande">
+                        <img src="img/logos/geogebra.png"
+                             alt="Logo de GeoGebra"
+                             onerror="this.closest('.logo-caja').outerHTML = '<div class=&quot;logo-circulo&quot; style=&quot;background:#2A5ADA&quot;>G</div>';">
+                    </div>
+                    <h2>GeoGebra</h2>
+                </div>
+
+                <p class="descripcion">Software de matemáticas dinámicas para geometría, álgebra, estadística y cálculo, muy usado en educación.</p>
+
+                <div class="video-wrapper">
+                    <video controls preload="metadata" playsinline
+                           onerror="this.parentElement.innerHTML = '<div class=\'video-pendiente\'>🎬 Video próximamente<br><small>(coloca &quot;geogebra.mp4&quot; en la carpeta /video/)</small></div>';">
+                        <source src="video/geogebra.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de este video.
+                    </video>
+                    <button class="video-maximizar" aria-label="Maximizar video">⛶</button>
+                </div>
+
+                <div class="detalle-columnas">
+                    <div class="columna">
+                        <h3>✅ Características</h3>
+                        <ul>
+                                <li>Calculadora gráfica y geométrica</li>
+                                <li>Creación de applets interactivos</li>
+                                <li>Disponible en web, escritorio y móvil</li>
+                        </ul>
+                    </div>
+                    <div class="columna">
+                        <h3>👍 Ventajas</h3>
+                        <ul>
+                                <li>Totalmente gratuito</li>
+                                <li>Excelente para enseñar matemáticas de forma visual</li>
+                                <li>Comunidad enorme de recursos compartidos</li>
+                        </ul>
+                    </div>
+                    <div class="columna">
+                        <h3>👎 Desventajas</h3>
+                        <ul>
+                                <li>Curva de aprendizaje si nunca se ha usado software matemático</li>
+                                <li>No está pensado para diseño gráfico</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <a class="boton-oficial" href="https://www.geogebra.org" target="_blank" rel="noopener">Visitar sitio oficial ↗</a>
+            </div>
+            <div class="modal-panel" data-slug="slidesgo">
+                <div class="detalle-top">
+                    <div class="logo-caja logo-caja--grande">
+                        <img src="img/logos/slidesgo.png"
+                             alt="Logo de Slidesgo"
+                             onerror="this.closest('.logo-caja').outerHTML = '<div class=&quot;logo-circulo&quot; style=&quot;background:#7B61FF&quot;>S</div>';">
+                    </div>
+                    <h2>Slidesgo</h2>
+                </div>
+
+                <p class="descripcion">Plataforma de plantillas gratuitas y premium para Google Slides y PowerPoint, con temas para todo tipo de presentaciones.</p>
+
+                <div class="video-wrapper">
+                    <video controls preload="metadata" playsinline
+                           onerror="this.parentElement.innerHTML = '<div class=\'video-pendiente\'>🎬 Video próximamente<br><small>(coloca &quot;slidesgo.mp4&quot; en la carpeta /video/)</small></div>';">
+                        <source src="video/slidesgo.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de este video.
+                    </video>
+                    <button class="video-maximizar" aria-label="Maximizar video">⛶</button>
+                </div>
+
+                <div class="detalle-columnas">
+                    <div class="columna">
+                        <h3>✅ Características</h3>
+                        <ul>
+                                <li>Gran catálogo de plantillas por categoría</li>
+                                <li>Herramienta de creación con IA</li>
+                                <li>Recursos gráficos adicionales (iconos, fotos)</li>
+                        </ul>
+                    </div>
+                    <div class="columna">
+                        <h3>👍 Ventajas</h3>
+                        <ul>
+                                <li>Diseños modernos y profesionales</li>
+                                <li>Descargas gratuitas limitadas cada mes</li>
+                                <li>Fácil de personalizar en Google Slides</li>
+                        </ul>
+                    </div>
+                    <div class="columna">
+                        <h3>👎 Desventajas</h3>
+                        <ul>
+                                <li>Descargas ilimitadas requieren plan Premium</li>
+                                <li>Requiere cuenta para guardar favoritos</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <a class="boton-oficial" href="https://slidesgo.com" target="_blank" rel="noopener">Visitar sitio oficial ↗</a>
+            </div>
+            <div class="modal-panel" data-slug="slidescarnival">
+                <div class="detalle-top">
+                    <div class="logo-caja logo-caja--grande">
+                        <img src="img/logos/slidescarnival.png"
+                             alt="Logo de SlidesCarnival"
+                             onerror="this.closest('.logo-caja').outerHTML = '<div class=&quot;logo-circulo&quot; style=&quot;background:#FF6B35&quot;>S</div>';">
+                    </div>
+                    <h2>SlidesCarnival</h2>
+                </div>
+
+                <p class="descripcion">Plantillas gratuitas y minimalistas para PowerPoint y Google Slides, sin necesidad de registro.</p>
+
+                <div class="video-wrapper">
+                    <video controls preload="metadata" playsinline
+                           onerror="this.parentElement.innerHTML = '<div class=\'video-pendiente\'>🎬 Video próximamente<br><small>(coloca &quot;slidescarnival.mp4&quot; en la carpeta /video/)</small></div>';">
+                        <source src="video/slidescarnival.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de este video.
+                    </video>
+                    <button class="video-maximizar" aria-label="Maximizar video">⛶</button>
+                </div>
+
+                <div class="detalle-columnas">
+                    <div class="columna">
+                        <h3>✅ Características</h3>
+                        <ul>
+                                <li>Descarga sin necesidad de cuenta</li>
+                                <li>Estilo visual limpio y minimalista</li>
+                                <li>Filtros por color y tema</li>
+                        </ul>
+                    </div>
+                    <div class="columna">
+                        <h3>👍 Ventajas</h3>
+                        <ul>
+                                <li>Completamente gratis</li>
+                                <li>Sin límite de descargas</li>
+                                <li>Ideal para presentaciones académicas simples</li>
+                        </ul>
+                    </div>
+                    <div class="columna">
+                        <h3>👎 Desventajas</h3>
+                        <ul>
+                                <li>Menos plantillas que Slidesgo o Canva</li>
+                                <li>Menor variedad de estilos llamativos</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <a class="boton-oficial" href="https://www.slidescarnival.com" target="_blank" rel="noopener">Visitar sitio oficial ↗</a>
+            </div>
+            <div class="modal-panel" data-slug="prezi">
+                <div class="detalle-top">
+                    <div class="logo-caja logo-caja--grande">
+                        <img src="img/logos/prezi.png"
+                             alt="Logo de Prezi"
+                             onerror="this.closest('.logo-caja').outerHTML = '<div class=&quot;logo-circulo&quot; style=&quot;background:#2D8CFF&quot;>P</div>';">
+                    </div>
+                    <h2>Prezi</h2>
+                </div>
+
+                <p class="descripcion">Herramienta de presentaciones que usa un lienzo infinito con zoom, en lugar de diapositivas tradicionales.</p>
+
+                <div class="video-wrapper">
+                    <video controls preload="metadata" playsinline
+                           onerror="this.parentElement.innerHTML = '<div class=\'video-pendiente\'>🎬 Video próximamente<br><small>(coloca &quot;prezi.mp4&quot; en la carpeta /video/)</small></div>';">
+                        <source src="video/prezi.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de este video.
+                    </video>
+                    <button class="video-maximizar" aria-label="Maximizar video">⛶</button>
+                </div>
+
+                <div class="detalle-columnas">
+                    <div class="columna">
+                        <h3>✅ Características</h3>
+                        <ul>
+                                <li>Presentaciones tipo mapa mental con zoom</li>
+                                <li>Plantillas dinámicas</li>
+                                <li>Modo presencial y videollamada (Prezi Video)</li>
+                        </ul>
+                    </div>
+                    <div class="columna">
+                        <h3>👍 Ventajas</h3>
+                        <ul>
+                                <li>Presentaciones muy visuales y originales</li>
+                                <li>Buena para mostrar relaciones entre ideas</li>
+                                <li>Se puede usar directamente en el navegador</li>
+                        </ul>
+                    </div>
+                    <div class="columna">
+                        <h3>👎 Desventajas</h3>
+                        <ul>
+                                <li>El efecto de zoom puede marear a algunas personas</li>
+                                <li>Curva de aprendizaje mayor que un editor de diapositivas clásico</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <a class="boton-oficial" href="https://prezi.com" target="_blank" rel="noopener">Visitar sitio oficial ↗</a>
+            </div>
+            <div class="modal-panel" data-slug="visme">
+                <div class="detalle-top">
+                    <div class="logo-caja logo-caja--grande">
+                        <img src="img/logos/visme.png"
+                             alt="Logo de Visme"
+                             onerror="this.closest('.logo-caja').outerHTML = '<div class=&quot;logo-circulo&quot; style=&quot;background:#FF4351&quot;>V</div>';">
+                    </div>
+                    <h2>Visme</h2>
+                </div>
+
+                <p class="descripcion">Plataforma para crear presentaciones, infografías, documentos y contenido visual interactivo.</p>
+
+                <div class="video-wrapper">
+                    <video controls preload="metadata" playsinline
+                           onerror="this.parentElement.innerHTML = '<div class=\'video-pendiente\'>🎬 Video próximamente<br><small>(coloca &quot;visme.mp4&quot; en la carpeta /video/)</small></div>';">
+                        <source src="video/visme.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de este video.
+                    </video>
+                    <button class="video-maximizar" aria-label="Maximizar video">⛶</button>
+                </div>
+
+                <div class="detalle-columnas">
+                    <div class="columna">
+                        <h3>✅ Características</h3>
+                        <ul>
+                                <li>Editor de infografías y presentaciones</li>
+                                <li>Gráficos de datos interactivos</li>
+                                <li>Plantillas para documentos y videos cortos</li>
+                        </ul>
+                    </div>
+                    <div class="columna">
+                        <h3>👍 Ventajas</h3>
+                        <ul>
+                                <li>Muy completo para contenido visual variado</li>
+                                <li>Buenas herramientas de datos/gráficas</li>
+                                <li>Permite descargar en varios formatos</li>
+                        </ul>
+                    </div>
+                    <div class="columna">
+                        <h3>👎 Desventajas</h3>
+                        <ul>
+                                <li>Versión gratuita limitada en descargas</li>
+                                <li>Interfaz un poco más compleja al inicio</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <a class="boton-oficial" href="https://www.visme.co" target="_blank" rel="noopener">Visitar sitio oficial ↗</a>
+            </div>
+            <div class="modal-panel" data-slug="genially">
+                <div class="detalle-top">
+                    <div class="logo-caja logo-caja--grande">
+                        <img src="img/logos/genially.png"
+                             alt="Logo de Genially"
+                             onerror="this.closest('.logo-caja').outerHTML = '<div class=&quot;logo-circulo&quot; style=&quot;background:#6D30D6&quot;>G</div>';">
+                    </div>
+                    <h2>Genially</h2>
+                </div>
+
+                <p class="descripcion">Herramienta para crear contenido interactivo y animado: presentaciones, infografías, juegos educativos y más.</p>
+
+                <div class="video-wrapper">
+                    <video controls preload="metadata" playsinline
+                           onerror="this.parentElement.innerHTML = '<div class=\'video-pendiente\'>🎬 Video próximamente<br><small>(coloca &quot;genially.mp4&quot; en la carpeta /video/)</small></div>';">
+                        <source src="video/genially.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de este video.
+                    </video>
+                    <button class="video-maximizar" aria-label="Maximizar video">⛶</button>
+                </div>
+
+                <div class="detalle-columnas">
+                    <div class="columna">
+                        <h3>✅ Características</h3>
+                        <ul>
+                                <li>Contenido interactivo (clics, capas, animaciones)</li>
+                                <li>Plantillas para educación y empresa</li>
+                                <li>Exportación a HTML, PDF, JPG o MP4</li>
+                        </ul>
+                    </div>
+                    <div class="columna">
+                        <h3>👍 Ventajas</h3>
+                        <ul>
+                                <li>Ideal para gamificación y clases interactivas</li>
+                                <li>Plan gratuito permanente</li>
+                                <li>Buena comunidad de plantillas compartidas</li>
+                        </ul>
+                    </div>
+                    <div class="columna">
+                        <h3>👎 Desventajas</h3>
+                        <ul>
+                                <li>Puede ser lento con animaciones muy complejas</li>
+                                <li>Algunas plantillas avanzadas son de pago</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <a class="boton-oficial" href="https://genially.com" target="_blank" rel="noopener">Visitar sitio oficial ↗</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js?v=3"></script>
+</body>
+</html>
