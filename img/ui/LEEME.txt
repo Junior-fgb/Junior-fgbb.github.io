@@ -1,0 +1,10 @@
+Esta carpeta guardará imágenes de interfaz que NO son
+logos de herramientas, por ejemplo:
+
+- Iconos de flechas del carrusel (si no usamos SVG/emoji)
+- Fondos decorativos
+- Iconos para "ventajas" y "desventajas" en las páginas
+  de cada recurso
+
+La separamos de img/logos/ para mantener el orden:
+"logos de marcas" vs "elementos propios de nuestro diseño".

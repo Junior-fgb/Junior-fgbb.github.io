@@ -1,0 +1,356 @@
+/* ===================================================
+   style.css
+   ---------------------------------------------------
+   Estilos generales + carrusel 3D + página de detalle.
+   =================================================== */
+
+html {
+    /* Evita la barra de scroll horizontal: las tarjetas del
+       carrusel que están "ocultas" (opacity: 0) igual quedan
+       posicionadas fuera de la pantalla, y sin esto el navegador
+       agrega una barra de desplazamiento horizontal molesta. */
+    overflow-x: hidden;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    /* Fondo con un leve degradado radial en vez de un color plano,
+       para dar sensación de profundidad (muy usado en sitios modernos) */
+    background:
+        radial-gradient(circle at 20% 0%, rgba(123, 97, 255, .18), transparent 45%),
+        radial-gradient(circle at 85% 15%, rgba(0, 196, 204, .12), transparent 40%),
+        #14151a;
+    color: #fff;
+    line-height: 1.5;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ---------- HEADER ---------- */
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 2rem;
+    background: rgba(28, 29, 36, .85);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(255,255,255,.06);
+    position: sticky;
+    top: 0;
+    z-index: 500;
+}
+.logo { font-weight: bold; font-size: 1.2rem; }
+.logo span { color: #7B61FF; }
+.main-nav a {
+    margin-left: 1.5rem;
+    opacity: .85;
+    position: relative;
+    padding-bottom: 4px;
+    transition: opacity .2s ease;
+}
+.main-nav a::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 0;
+    height: 2px;
+    background: #7B61FF;
+    transition: width .25s ease;
+}
+.main-nav a:hover { opacity: 1; }
+.main-nav a:hover::after { width: 100%; }
+
+/* ---------- HERO ---------- */
+.hero {
+    text-align: center;
+    padding: 3.5rem 1rem 1rem;
+    animation: aparecer .6s ease both;
+}
+.hero h1 {
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+}
+.hero p {
+    opacity: .7;
+    margin-top: .6rem;
+    font-size: 1.05rem;
+}
+
+/* Pequeña animación de aparición reutilizable */
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- CARRUSEL ---------- */
+.carousel-section {
+    position: relative;
+    height: clamp(420px, 42vw, 560px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem auto;
+    max-width: 1400px;
+    /* perspective da la sensación de profundidad 3D */
+    perspective: 1200px;
+    animation: aparecer .7s ease .1s both;
+}
+
+.carousel-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* clamp(mínimo, preferido, máximo): crece con el ancho de
+       pantalla (18vw) pero nunca más chico que 220px ni más
+       grande que 300px. Así se ve bien en pantallas pequeñas
+       Y grandes, sin depender del zoom del navegador. */
+    width: clamp(220px, 18vw, 300px);
+    height: clamp(300px, 25vw, 400px);
+    background: linear-gradient(160deg, #24252e, #1b1c23);
+    border: 1px solid rgba(255,255,255,.06);
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0,0,0,.4);
+    /* la transición es lo que anima el cambio entre tarjetas */
+    transition: transform .45s ease, opacity .45s ease, box-shadow .3s ease;
+}
+
+/* Solo la tarjeta central tiene un brillo/realce extra,
+   para que quede claro que es la seleccionada */
+.carousel-card[data-index].carousel-card:hover {
+    box-shadow: 0 14px 34px rgba(0,0,0,.5);
+}
+
+.carousel-card h3 { font-size: clamp(1.1rem, 1.4vw, 1.35rem); text-align: center; padding: 0 .5rem; }
+
+.logo-circulo {
+    width: clamp(70px, 7vw, 96px);
+    height: clamp(70px, 7vw, 96px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(1.7rem, 2vw, 2.3rem);
+    font-weight: bold;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+/* Caja para logos REALES (imagen). Ya no tiene fondo blanco
+   ni relleno: el logo se muestra "limpio", tal cual es,
+   sin ningún marco alrededor. */
+.logo-caja {
+    width: clamp(70px, 7vw, 96px);
+    height: clamp(70px, 7vw, 96px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.logo-caja img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+/* Versión más grande, usada en el encabezado de la ventana modal */
+.logo-caja--grande {
+    width: 84px;
+    height: 84px;
+}
+
+.carousel-arrow {
+    background: rgba(255,255,255,.08);
+    border: none;
+    color: #fff;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    cursor: pointer;
+    z-index: 10;
+}
+.carousel-arrow:hover { background: rgba(255,255,255,.18); }
+.carousel-arrow.left { position: absolute; left: 0; }
+.carousel-arrow.right { position: absolute; right: 0; }
+
+/* ---------- VENTANA MODAL ---------- */
+/* Capa oscura que cubre toda la pantalla, detrás de la ventana */
+.modal-overlay {
+    display: none; /* JS la cambia a "flex" para mostrarla */
+    position: fixed;
+    inset: 0; /* equivale a top:0; right:0; bottom:0; left:0; */
+    background: rgba(0, 0, 0, .75);
+    z-index: 1000;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 2.5rem 1rem;
+    overflow-y: auto;
+}
+/* Esta clase la agrega/quita JavaScript para abrir/cerrar */
+.modal-overlay.abierto { display: flex; }
+
+.modal-caja {
+    position: relative;
+    background: #1c1d24;
+    max-width: 780px;
+    width: 100%;
+    border-radius: 14px;
+    padding: 2rem;
+    animation: aparecerModal .3s ease both;
+}
+
+@keyframes aparecerModal {
+    from { opacity: 0; transform: translateY(16px) scale(.98); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.modal-cerrar {
+    position: absolute;
+    top: 1rem; right: 1rem;
+    background: rgba(255,255,255,.08);
+    border: none;
+    color: #fff;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    font-size: 1.3rem;
+    cursor: pointer;
+    z-index: 5;
+}
+.modal-cerrar:hover { background: rgba(255,255,255,.2); }
+
+/* Cada panel (uno por herramienta) está oculto por defecto;
+   JS le agrega la clase "visible" al que corresponde */
+.modal-panel { display: none; }
+.modal-panel.visible { display: block; }
+
+/* ---------- Contenido dentro del panel ---------- */
+.detalle-top {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin-bottom: 1rem;
+}
+.descripcion { opacity: .85; margin-bottom: 1.5rem; }
+
+/* Contenedor del video en su tamaño normal (dentro de la ventana) */
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.video-wrapper video {
+    width: 100%;
+    height: 100%;
+    /* object-fit: contain evita que el video se deforme si su
+       proporción no es exactamente 16:9 (común en videos de celular) */
+    object-fit: contain;
+    background: #000;
+}
+
+/* Aviso que se muestra si el archivo de video todavía no
+   se ha colocado en la carpeta /video/ */
+.video-pendiente {
+    text-align: center;
+    opacity: .6;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+.video-pendiente small { opacity: .8; font-size: .78rem; }
+
+/* Botón "⛶" para maximizar el video, esquina superior derecha */
+.video-maximizar {
+    position: absolute;
+    top: 10px; right: 10px;
+    z-index: 3;
+    background: rgba(0,0,0,.6);
+    color: #fff;
+    border: none;
+    width: 34px; height: 34px;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+.video-maximizar:hover { background: rgba(0,0,0,.85); }
+
+/* Alternativa CSS para maximizar, usada SOLO como respaldo en
+   navegadores que no soporten la Fullscreen API nativa */
+.video-wrapper.maximizado {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    aspect-ratio: auto;
+    border-radius: 0;
+    z-index: 2000;
+}
+
+/* Cuando el <video> entra en pantalla completa NATIVA
+   (a través de requestFullscreen), el navegador ya lo agranda
+   automáticamente: no necesitamos CSS adicional para ese caso. */
+
+.detalle-columnas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+.columna h3 { font-size: 1rem; margin-bottom: .6rem; }
+.columna ul { padding-left: 1.1rem; opacity: .85; font-size: .92rem; }
+.columna li { margin-bottom: .4rem; }
+
+.boton-oficial {
+    display: inline-block;
+    background: #7B61FF;
+    padding: .8rem 1.6rem;
+    border-radius: 30px;
+    font-weight: bold;
+}
+
+/* ---------- FOOTER ---------- */
+.site-footer {
+    text-align: center;
+    padding: 1.5rem;
+    opacity: .5;
+    font-size: .85rem;
+}
+
+/* ===================================================
+   RESPONSIVE: pantallas de celular (hasta 600px)
+   =================================================== */
+@media (max-width: 600px) {
+    .carousel-card { width: 155px; height: 220px; gap: .7rem; }
+    .logo-circulo, .logo-caja { width: 56px; height: 56px; font-size: 1.4rem; }
+    .carousel-card h3 { font-size: .9rem; }
+    .carousel-section { height: 300px; }
+
+    .detalle-columnas { grid-template-columns: 1fr; }
+    .detalle-top { flex-direction: column; text-align: center; }
+
+    .modal-overlay { padding: 0; }
+    .modal-caja { max-width: 100%; min-height: 100vh; border-radius: 0; padding: 1.2rem; }
+}

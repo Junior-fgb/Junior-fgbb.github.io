@@ -1,0 +1,24 @@
+Aquí van los logotipos REALES de cada herramienta.
+
+CONVENCIÓN DE NOMBRES (igual que con los videos):
+El archivo debe llamarse igual que el "slug" de la
+herramienta. Acepta varios formatos: .png, .svg, .jpg,
+.jpeg o .webp (se recomienda .png o .svg por el fondo
+transparente).
+
+    canva.png
+    slidesmania.png
+    geogebra.png
+    slidesgo.png
+    slidescarnival.png
+    prezi.png
+    visme.png
+    genially.png
+
+Puedes descargar los logos oficiales desde el sitio de
+cada herramienta (usualmente tienen una sección de
+"Prensa" o "Brand/Media Kit").
+
+Si un logo aún no está aquí, la página automáticamente
+sigue mostrando el círculo de color con la inicial, así
+que nunca se rompe nada mientras los vas subiendo.
